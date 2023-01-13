@@ -1,14 +1,21 @@
-const router = require("express").Router();
+import { Router } from "express";
+const router = Router();
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/user");
-const authRouter = require("./routes/auth");
+import indexRouter from "./routes/index.js";
+import userRouter from "./routes/user.js";
+import authRouter from "./routes/auth.js";
+import moviesRouter from "./routes/movie.js";
+import rentedMovies from "./routes/rentedMovies.js";
 
 // routes
 router.use("/", indexRouter);
-router.use("/users", usersRouter);
+router.use("/users", userRouter);
 
 // auth
 router.use("/auth", authRouter);
 
-module.exports = router;
+router.use("/movies", moviesRouter);
+
+router.use("/rentedmovies", rentedMovies);
+
+export default router;
