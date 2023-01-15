@@ -5,6 +5,7 @@ const verifyToken = (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
+      console.log("hola");
       return res.status(401).json({
         success: false,
         message: "No authorization token was found",
@@ -20,7 +21,9 @@ const verifyToken = (req, res, next) => {
     req.user_role = decoded.user_role;
 
     next();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default verifyToken;
