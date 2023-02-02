@@ -23,7 +23,7 @@ MovieController.getAll = async (req, res) => {
 MovieController.getFilmById = async (req, res, id) => {
   try {
     const id = req.params.id;
-    console.log("hola");
+
     const movie = await Movie.findOne({ id: id });
 
     if (movie) {
